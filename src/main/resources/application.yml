@@ -1,0 +1,11 @@
+
+spring:
+  profiles:
+    active: dev
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  devtools:
+    livereload:
+      enabled: true #JSP 수정 시 서버 재시작 없이 바로 적용
