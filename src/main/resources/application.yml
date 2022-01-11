@@ -11,3 +11,16 @@ spring:
       enabled: true #JSP 수정 시 서버 재시작 없이 바로 적용
   pid:
     file: joa.pid
+
+logging:
+  file:
+    name: ./logs/logback.log
+  logback:
+    rollingpolicy:
+      file-name-pattern: ${LOG_FILE}.%d{yyyy-MM-dd}-%i.log
+      max-history: 30 #30일까지 보관
+      max-file-size:
+        100MB #용량제한(100MB)
+  level:
+    root: info
+    '[org.hibernate.sql]': info
