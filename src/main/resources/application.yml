@@ -9,3 +9,5 @@ spring:
   devtools:
     livereload:
       enabled: true #JSP 수정 시 서버 재시작 없이 바로 적용
+  pid:
+    file: joa.pid
