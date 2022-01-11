@@ -11,18 +11,25 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class IndexController {
 
-	
+
 	@GetMapping("/")
 	public String index() {
 		log.info("Welcome to the world!!");
-		
+
 		return "index";
 	}
+
+
+	@GetMapping("/f/new/client")
+	public String newClient() {
+
+		return "feature/newClient";
+	}
+
 	@GetMapping("/f/match/client/no")
 	public String matchClientNo() {
-		
+
 		return "feature/matchClientNo";
 	}
 
-	
 }

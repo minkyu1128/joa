@@ -207,26 +207,31 @@ function get_header_row(sheet) {
 //import Grid from 'tui-grid'; /* ES6 */
 const Grid = tui.Grid;
 
-
-
 const instance = new Grid({
-	  el: document.getElementById('grid'), // Container element
-	  columns: [
-	    {
-	      header: '고객코드',
-	      name: 'userCode',
-	      sort: true
-	    },
-	    {
-	      header: '고객',
-	      name: 'client'
-	    }
-	  ]
-	});
+	el: document.getElementById('grid'), // Container element
+	rowHeaders: ['rowNum'],
+	bodyHeight: 450,
+	columns: [
+		{
+			header: '고객코드',
+			name: 'userCode',
+			filter: 'select',
+			sortingType: 'desc',
+			sortable: true
+		},
+		{
+			header: '고객',
+			name: 'client',
+			filter: 'select',
+			sortingType: 'desc',
+			sortable: true
+		}
+	]
+});
 
-// 	instance.resetData(newData); // Call API of instance's public method
+// instance.resetData(newData); // Call API of instance's public method
 
-	Grid.applyTheme('striped'); // Call API of static method
+Grid.applyTheme('striped'); // Call API of static method
 
 </script>
 
