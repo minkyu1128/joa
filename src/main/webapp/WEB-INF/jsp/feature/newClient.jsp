@@ -11,6 +11,8 @@
 <script type="text/javascript" src="https://uicdn.toast.com/tui.pagination/v3.4.0/tui-pagination.js"></script>
 <link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css" />
 
+<link rel="stylesheet" href="/resource/css/style.css" />
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
 <script type="text/javascript" defer>
@@ -286,36 +288,59 @@ function get_header_row(sheet) {
 
 </head>
 <body>
-	<div class="content">
-		<input type="file" id="fExcel" name="fExcel" />
-<!-- 		<h1>Header 정보 보기</h1> -->
-<!-- 		<div id="displayHeaders"></div> -->
-<!-- 		<h1>JSON 형태로 보기</h1> -->
-<!-- 		<div id="displayExcelJson"></div> -->
-<!-- 		<h1>CSV 형태로 보기</h1> -->
-<!-- 		<div id="displayExcelCsv"></div> -->
-<!-- 		<h1>HTML 형태로 보기</h1> -->
-<!-- 		<div id="displayExcelHtml"></div> -->
-	</div>
-	
-	<div id="grid" style="display: none"></div>
 
-
-
-
-	<div class="container">
-		<!-- 탭 메뉴 상단 시작 -->
-		<ul class="tabs">
-			<li class="tab-link current" data-tab="tab-1">Tabs</li>
-		</ul>
-		<!-- 탭 메뉴 상단 끝 -->
-		<!-- 탭 메뉴 내용 시작 -->
-		<div id="tab-1" class="tab-1 current">
-			<h1></h1>
-			<div id="grid-1"></div>
+	<div class="app-container">
+		<div class="app-item nav">
+			<jsp:include page="../nav.jsp"></jsp:include>
 		</div>
-		<!-- 탭 메뉴 내용 끝 -->
+
+		<div class="app-item article">
+			<h1>신규고객 유무</h1>
+			<div class="content">
+				<input type="file" id="fExcel" name="fExcel" />
+				<details>
+					<summary>메뉴 세부정보</summary>
+					<ul>
+						<li>전년도와 금년도 고객을 비교하여 금년도 `신규고객` 유무를 출력하는 메뉴.</li>
+						<li>첨부파일의 각 시트는 `A열:전년도 고객명, B열:금년도 고객명`이 작성 되어 있어야 한다.</li>
+						<ul>
+							<li>1행: 제목. ex) 2020/2021년도 고객현황</li>
+							<li>2행: 컬럼명. ex) A열:고객, B열:고객</li>
+							<li>3~xxx행: 데이터</li>
+						</ul>
+					</ul>
+				</details>
+		<!-- 		<h1>Header 정보 보기</h1> -->
+		<!-- 		<div id="displayHeaders"></div> -->
+		<!-- 		<h1>JSON 형태로 보기</h1> -->
+		<!-- 		<div id="displayExcelJson"></div> -->
+		<!-- 		<h1>CSV 형태로 보기</h1> -->
+		<!-- 		<div id="displayExcelCsv"></div> -->
+		<!-- 		<h1>HTML 형태로 보기</h1> -->
+		<!-- 		<div id="displayExcelHtml"></div> -->
+			</div>
+
+			<div id="grid" style="display: none"></div>
+
+
+
+
+			<div class="container">
+				<!-- 탭 메뉴 상단 시작 -->
+				<ul class="tabs">
+					<li class="tab-link current" data-tab="tab-1">Tabs</li>
+				</ul>
+				<!-- 탭 메뉴 상단 끝 -->
+				<!-- 탭 메뉴 내용 시작 -->
+				<div id="tab-1" class="tab-1 current">
+					<h1></h1>
+					<div id="grid-1"></div>
+				</div>
+				<!-- 탭 메뉴 내용 끝 -->
+			</div>
+		</div>
 	</div>
+
 
 
 </body>
@@ -364,6 +389,7 @@ const gridConf = {
 		{
 			header: '전년도 고객',
 			name: 'client',
+			minWidth: 100,
 			filter: 'select',
 			sortingType: 'desc',
 			sortable: true
@@ -371,6 +397,7 @@ const gridConf = {
 		{
 			header: '금년도 고객',
 			name: 'newClient',
+			minWidth: 100,
 			filter: 'select',
 			sortingType: 'desc',
 			sortable: true
@@ -378,6 +405,7 @@ const gridConf = {
 		{
 			header: '신규 고객',
 			name: 'isNewClient',
+			minWidth: 100,
 			filter: 'select',
 			sortingType: 'desc',
 			sortable: true

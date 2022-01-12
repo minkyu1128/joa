@@ -10,8 +10,12 @@
 <script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
 <link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css" />
 
+<link rel="stylesheet" href="/resource/css/style.css" />
+
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+
 <script type="text/javascript">
 window.onload = function(){
 // 	document.getElementById('fExcel').addEventListener('change', readExcel);
@@ -187,19 +191,47 @@ function get_header_row(sheet) {
 
 </head>
 <body>
-	<div class="content">
-		<input type="file" id="fExcel" name="fExcel" />
-<!-- 		<h1>Header 정보 보기</h1> -->
-<!-- 		<div id="displayHeaders"></div> -->
-<!-- 		<h1>JSON 형태로 보기</h1> -->
-<!-- 		<div id="displayExcelJson"></div> -->
-<!-- 		<h1>CSV 형태로 보기</h1> -->
-<!-- 		<div id="displayExcelCsv"></div> -->
-<!-- 		<h1>HTML 형태로 보기</h1> -->
-<!-- 		<div id="displayExcelHtml"></div> -->
+	<div class="app-container">
+		<div class="app-item nav">
+			<jsp:include page="../nav.jsp"></jsp:include>
+		</div>
+
+		<div class="app-item article">
+			<h1>물류실적 고객코드 매칭</h1>
+			<div class="content">
+				<input type="file" id="fExcel" name="fExcel" />
+				<details>
+					<summary>메뉴 세부정보</summary>
+					<ul>
+						<li>`고객코드일치`시트의 고객명으로 `물류담당DB`시트에서 일치하는 고객의 고객번호를 찾아 출력한다.</li>
+						<li>첨부파일은 2개의 시트(고객코드일치, 물류담당DB)가 있어야 한다.</li>
+						<span>[고객코드일치] 시트</span>
+						<ul>
+							<li>1행: 제목.</li>
+							<li>2행: 컬럼명. ex) A열:고객코드, B열:고객</li>
+							<li>3~xxx행: 데이터</li>
+						</ul>
+						[물류담당DB] 시트
+						<ul>
+							<li>1행: 제목. ex) 2020/2021년도 고객현황</li>
+							<li>2행: 컬럼명. ex) A열:고객코드, B열:거래처명</li>
+							<li>3~xxx행: 데이터</li>
+						</ul>
+					</ul>
+				</details>
+		<!-- 		<h1>Header 정보 보기</h1> -->
+		<!-- 		<div id="displayHeaders"></div> -->
+		<!-- 		<h1>JSON 형태로 보기</h1> -->
+		<!-- 		<div id="displayExcelJson"></div> -->
+		<!-- 		<h1>CSV 형태로 보기</h1> -->
+		<!-- 		<div id="displayExcelCsv"></div> -->
+		<!-- 		<h1>HTML 형태로 보기</h1> -->
+		<!-- 		<div id="displayExcelHtml"></div> -->
+			</div>
+
+			<div id="grid"></div>
+		</div>
 	</div>
-	
-	<div id="grid"></div>
 </body>
 
 
@@ -215,6 +247,7 @@ const instance = new Grid({
 		{
 			header: '고객코드',
 			name: 'userCode',
+			minWidth: 100,
 			filter: 'select',
 			sortingType: 'desc',
 			sortable: true
@@ -222,6 +255,7 @@ const instance = new Grid({
 		{
 			header: '고객',
 			name: 'client',
+			minWidth: 100,
 			filter: 'select',
 			sortingType: 'desc',
 			sortable: true

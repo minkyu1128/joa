@@ -12,15 +12,15 @@ spring:
   pid:
     file: joa.pid
 
-logging:
-  file:
-    name: ./logs/logback.log
-  logback:
-    rollingpolicy:
-      file-name-pattern: ${LOG_FILE}.%d{yyyy-MM-dd}-%i.log
-      max-history: 30 #30일까지 보관
-      max-file-size:
-        100MB #용량제한(100MB)
-  level:
-    root: info
-    '[org.hibernate.sql]': info
+  logging:
+    file:
+      name: ./logs/logback.log
+    logback:
+      rollingpolicy:
+        file-name-pattern: ${LOG_FILE}.%d{yyyy-MM-dd}-%i.log
+        max-history: 30 #30일까지 보관
+        max-file-size:
+          100MB #용량제한(100MB)
+    level:
+      root: info
+      '[org.hibernate.sql]': info

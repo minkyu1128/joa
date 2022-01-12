@@ -9,16 +9,7 @@
 <body>
 Hello World!!
 
-<div>
-	<ul class="nav">
-		<li class="dp1">
-			<a href="/f/new/client">신규업체</a>
-		</li>
-		<li class="dp1">
-			<a href="/f/match/client/no">물류실적 고객코드 매칭</a>
-		</li>
-	</ul>
-</div>
+<jsp:include page="./nav.jsp"></jsp:include>
 </body>
 
 </html>

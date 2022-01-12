@@ -1,0 +1,23 @@
+div.app-container{
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    height: 100%;
+    width: 100%;
+
+}
+div.app-item.nav{
+    padding: 10px;
+    background-color: burlywood;
+}
+div.app-item.article{
+    padding: 10px;
+    background-color: whitesmoke;
+}
+
+details {
+    margin: 10px;
+}
+details > summary:hover {
+    cursor: pointer;
+    color: blue;
+}
