@@ -7,12 +7,13 @@
 <title>신규 업체</title>
 
 
-<script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
-<script type="text/javascript" src="https://uicdn.toast.com/tui.pagination/v3.4.0/tui-pagination.js"></script>
-<link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css" />
+	<script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+	<script type="text/javascript" src="https://uicdn.toast.com/tui.pagination/v3.4.0/tui-pagination.js"></script>
+	<link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css" />
 
-<link rel="stylesheet" href="/resource/css/style.css" />
+	<link rel="stylesheet" href="/resource/css/style.css" />
+	<script defer src="/resource/js/common.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" defer>
@@ -55,6 +56,7 @@ function initGrid(){
 		contentEl.appendChild(titleEl);
 		let gridEl = document.createElement('div');
 		gridEl.id = 'grid-'+tabNum;
+		gridEl.className = 'tuigrid';
 		contentEl.appendChild(gridEl);
 
 
@@ -122,7 +124,6 @@ function excelExportCommon(event, callback){
     	// instance.resetData(state.resultInfo[2].data); //데이터출력
 		initGrid();	//데이터출력
 		initTabs();	//Tabs 이벤트리스너 초기화
-
     };
     reader.readAsBinaryString(input.files[0]);
 }

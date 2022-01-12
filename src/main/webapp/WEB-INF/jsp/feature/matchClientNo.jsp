@@ -13,9 +13,10 @@
 
 
 	<link rel="stylesheet" href="/resource/css/style.css" />
+	<script defer src="/resource/js/common.js"></script>
 
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 <script type="text/javascript">
 window.onload = function(){
@@ -230,7 +231,7 @@ function get_header_row(sheet) {
 		<!-- 		<div id="displayExcelHtml"></div> -->
 			</div>
 
-			<div id="grid"></div>
+			<div id="grid" class="tuigrid"></div>
 		</div>
 	</div>
 </body>

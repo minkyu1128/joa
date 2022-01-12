@@ -1,17 +1,25 @@
-div.app-container{
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    height: 100%;
-    width: 100%;
 
+html{
+    font-size: 15px;
+}
+div.app-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 div.app-item.nav{
     padding: 10px;
     background-color: burlywood;
+    width: 14rem;
+    flex-grow: 0;
+
 }
 div.app-item.article{
     padding: 10px;
     background-color: whitesmoke;
+    width: 50%;
+    flex-grow: 1;
+
 }
 
 details {
