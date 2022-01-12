@@ -8,13 +8,13 @@
 
 
 <script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
 <script type="text/javascript" src="https://uicdn.toast.com/tui.pagination/v3.4.0/tui-pagination.js"></script>
 <link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css" />
 
 <link rel="stylesheet" href="/resource/css/style.css" />
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
 <script type="text/javascript" defer>
 window.onload = function(){
 // 	document.getElementById('fExcel').addEventListener('change', readExcel);
@@ -255,6 +255,10 @@ function get_header_row(sheet) {
 		margin: 10px;
 	}
 
+	div.container{
+		padding: 10px;
+		background-color: aquamarine;
+	}
 
 	ul.tabs{
 		margin: 0px;
@@ -367,7 +371,7 @@ const Grid = tui.Grid;
 
 
 const gridConf = {
-	el: document.getElementById('grid'), // Container
+	el: document.getElementById('grid-1'), // Container
 	rowHeaders: ['rowNum'],
 	bodyHeight: 450,
 	// pageOptions: {
