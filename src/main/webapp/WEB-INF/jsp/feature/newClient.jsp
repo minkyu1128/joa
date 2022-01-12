@@ -7,19 +7,24 @@
 <title>신규 업체</title>
 
 
-	<script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+	<script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
 	<script type="text/javascript" src="https://uicdn.toast.com/tui.pagination/v3.4.0/tui-pagination.js"></script>
 	<link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css" />
 
+	<!-- 공통 -->
 	<link rel="stylesheet" href="/resource/css/style.css" />
 	<script defer src="/resource/js/common.js"></script>
+	<!-- Drag&Drop -->
+	<link rel="stylesheet" href="/resource/css/file-drag-and-drop.css" />
+	<script defer src="/resource/js/file-drag-and-drop.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" defer>
 window.onload = function(){
 // 	document.getElementById('fExcel').addEventListener('change', readExcel);
 	document.getElementById('fExcel').addEventListener('change', excelExport);
+	stateDragAndDrop.callback = excelExport;	//File Drag&Drop callback 이벤트 초기화
 	initTabs();
 }
 function initTabs(){
@@ -104,7 +109,7 @@ function readExcel(){
 
 
 
-function excelExport(event){
+let excelExport = (event)=>{
 	state.init();
 	excelExportCommon(event, handleExcelDataAll);
 }
@@ -300,9 +305,8 @@ function get_header_row(sheet) {
 		</div>
 
 		<div class="app-item article">
-			<h1>신규고객 유무</h1>
-			<div class="content">
-				<input type="file" id="fExcel" name="fExcel" />
+			<div class="app-container" style="align-items: center">
+				<h1>신규고객 유무</h1>
 				<details>
 					<summary>메뉴 세부정보</summary>
 					<ul>
@@ -315,6 +319,12 @@ function get_header_row(sheet) {
 						</ul>
 					</ul>
 				</details>
+			</div>
+			<div class="content">
+				<input type="file" id="fExcel" name="fExcel" />
+				<div class="file-drag-and-drop">
+					<p>drag and drop your File!</p>
+				</div>
 		<!-- 		<h1>Header 정보 보기</h1> -->
 		<!-- 		<div id="displayHeaders"></div> -->
 		<!-- 		<h1>JSON 형태로 보기</h1> -->
